@@ -58,7 +58,7 @@ ROOT_URLCONF = 'task_manager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,26 +84,26 @@ WSGI_APPLICATION = 'task_manager.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'task_manager',
-       'USER': 'muhayminul',
-       'PASSWORD': '1234',
-
-   }
-}
-
-
 # DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': str(os.getenv('DATABASE_NAME')),
-#        'USER': str(os.getenv('DATABASE_USER')),
-#        'PASSWORD': str(os.getenv('DATABASE_PASSWORD')),
-
+#        'NAME': 'task_manager',
+#        'USER': 'muhayminul',
+#        'PASSWORD': '1234',
+#
 #    }
 # }
+
+
+DATABASES = {
+   'default': {
+       'ENGINE': 'django.db.backends.postgresql',
+       'NAME': str(os.getenv('DATABASE_NAME')),
+       'USER': str(os.getenv('DATABASE_USER')),
+       'PASSWORD': str(os.getenv('DATABASE_PASSWORD')),
+
+   }
+}
 
 
 
