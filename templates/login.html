@@ -16,7 +16,13 @@
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
-
+                                    {% if messages %}
+                                    <ul class="messages">
+                                        {% for message in messages %}
+                                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
                                     <form method="post" >
                                         {% csrf_token %}
                                         <div class="d-flex align-items-center mb-3 pb-1">
@@ -28,15 +34,15 @@
                                             account</h5>
 
                                         <div class="form-outline mb-4">
+                                            <label class="form-label" for="form2Example17">Username</label>
                                             <input type="text" id="form2Example17" name="email"
                                                    class="form-control form-control-lg"/>
-                                            <label class="form-label" for="form2Example17">Email address</label>
                                         </div>
 
                                         <div class="form-outline mb-4">
+                                            <label class="form-label" for="form2Example27">Password</label>
                                             <input type="password" id="form2Example27" name="password"
                                                    class="form-control form-control-lg"/>
-                                            <label class="form-label" for="form2Example27">Password</label>
                                         </div>
 
                                         <div class="pt-1 mb-4">
@@ -45,7 +51,7 @@
 
                                         <a class="small text-muted" href="#!">Forgot password?</a>
                                         <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a
-                                                href="#!"
+                                                href="/register/"
                                                 style="color: #393f81;">Register here</a></p>
                                         <a href="#!" class="small text-muted">Terms of use.</a>
                                         <a href="#!" class="small text-muted">Privacy policy</a>
